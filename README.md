@@ -3,6 +3,8 @@ An Unofficial Ruby Library for BoxC API
 
 Compatibility: Ruby
 
+Note: You might need to JSON.parse() the response
+
 Install with `gem install`:
 
 ```ruby
@@ -17,7 +19,7 @@ gem install boxc-ruby
 [Generates authorization URL](https://api.boxc.com/v1/docs/oauth2#get)
 
 ```ruby
-require 'boxc-ruby'
+require 'boxc'
 boxc = Boxc.new()
 
 # Get authorization url
