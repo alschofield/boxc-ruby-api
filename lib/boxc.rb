@@ -148,27 +148,58 @@ class Boxc
     return HTTParty.post(@@base_uri+'/labels', :body => {'label': label}.to_json, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Update label
+  # @link https://api.boxc.com/v1/docs/labels#update
+  # 
+  # @param {String} id
+  # @param {Object} label
+  # 
+  # @returns {<Object>}
+  
   def updateLabel(id, label)
     return HTTParty.put(@@base_uri+'/labels/'+id.to_s, :body => label.to_json, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Cancels a label
+  # @link https://api.boxc.com/v1/docs/labels#cancel
+  # 
+  # @param {String} id
+  # 
+  # @returns {<Object>}
+
   def cancelLabel(id)
     return HTTParty.put(@@base_uri+'/labels/'+id.to_s+'/cancel', :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Create manifest
+  # @link https://api.boxc.com/v1/docs/manifests#post
+  # 
+  # @param {Object} manifest
+  # 
+  # @returns {<Object>}
+
   def createManifest(manifest)
     return HTTParty.post(@@base_uri+'/manifests', :body => manifest.to_json, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  #  Retrieve manifest
+  # @link https://api.boxc.com/v1/docs/manifests#get
+  # 
+  # @param {string} id
+  # 
+  # @returns {<Object>}
+
   def getManifest(id)
     return HTTParty.get(@@base_uri+'/manifests/'+id.to_s, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Get overpacks
+  # @link https://api.boxc.com/v1/docs/overpacks#search
+  # 
+  # @param {Object} args
+  # 
+  # @returns {<Object>}
+
   def getOverpacks(args=nil)
     if args == nil
       return HTTParty.get(@@base_uri+'/overpacks', :headers => {'Authorization' => 'Bearer '+@token})
@@ -178,27 +209,58 @@ class Boxc
     end
   end
 
-  # works
+  # Retrieves an overpack
+  # @link https://api.boxc.com/v1/docs/overpacks#get
+  # 
+  # @param {String} id
+  # 
+  # @returns {<Object>}
+
   def getOverpack(id)
     return HTTParty.get(@@base_uri+'/overpacks/'+id.to_s, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Creates an overpack
+  # @link https://api.boxc.com/v1/docs/overpacks#create
+  # 
+  # @param {Object} overpack
+  # 
+  # @returns {<Object>}
+
   def createOverpack(overpack)
     return HTTParty.post(@@base_uri+'/overpacks', :body => overpack.to_json, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Updates an overpack
+  # @link https://api.boxc.com/v1/docs/overpacks#update
+  # 
+  # @param {String} id
+  # @param {Object} overpack
+  # 
+  # @returns {<Object>}
+
   def updateOverpack(id, overpack)
     return HTTParty.put(@@base_uri+'/overpacks/'+id.to_s, :body => overpack.to_json, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Deletes an overpack
+  # @link https://api.boxc.com/v1/docs/overpacks#delete
+  # 
+  # @param {String} id
+  # 
+  # @returns {<Object>}
+
   def deleteOverpack(id)
     return HTTParty.delete(@@base_uri+'/overpacks/'+id.to_s, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Retrieves a paginated list of shipments
+  # @link https://api.boxc.com/v1/docs/shipments#search
+  # 
+  # @param {Object} args
+  # 
+  # @returns {<Object>}
+
   def getShipments(args=nil)
     if args == nil
       return HTTParty.get(@@base_uri+'/shipments', :headers => {'Authorization' => 'Bearer '+@token})
@@ -208,40 +270,71 @@ class Boxc
     end
   end
 
-  # works
+  # Retrieves a shipment
+  # @link https://api.boxc.com/v1/docs/shipments#get
+  # 
+  # @param {String} id
+  # 
+  # @returns {Promise.<Object>}
+
   def getShipment(id)
     return HTTParty.get(@@base_uri+'/shipments/'+id.to_s, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Creates a shipment
+  # @link https://api.boxc.com/v1/docs/shipments#create
+  # 
+  # @param {Object} shipment
+  # 
+  # @returns {<Object>}
+
   def createShipment(shipment)
     return HTTParty.post(@@base_uri+'/shipments', :body => shipment.to_json, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Updates a shipment
+  # @link https://api.boxc.com/v1/docs/shipments#update
+  # 
+  # @param {String} id
+  # @param {Object} shipment
+  # 
+  # @returns {<Boolean>}
+
   def updateShipment(id, shipment)
     return HTTParty.put(@@base_uri+'/shipments/'+id.to_s, :body => shipment.to_json, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Deletes a shipment
+  # @link https://api.boxc.com/v1/docs/shipments#update
+  # 
+  # @param {String} id
+  # 
+  # @returns {<Boolean>}
+
   def deleteShipment(id)
     return HTTParty.delete(@@base_uri+'/shipments/'+id.to_s, :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # works
+  # Retrieves this user
+  # @link https://api.boxc.com/v1/docs/users#get
+  # 
+  # @returns {<Object>}
+
   def getUser()
-    return HTTParty.get(@@base_uri+'/users/me', :headers => {'Authorization' => 'Bearer '+@token})
+    puts HTTParty.get(@@base_uri+'/users/me', :headers => {'Authorization' => 'Bearer '+@token})
   end
 
-  # not working
+  # Updates this user
+  # @link https://api.boxc.com/v1/docs/users#update
+  # 
+  # @param {Object} user
+  # 
+  # @returns {<Object>}
+
   def updateUser(user)
     return HTTParty.put(@@base_uri+'/users/me', :body => user.to_json, :headers => {'Authorization' => 'Bearer '+@token})
   end
+
+
+  
 end
-
-boxc = Boxc.new()
-boxc.setAccessToken('462b09e7149ba74d78104f312c74d44576d14f1d8a37d998684935159c2082b3756849bdc59b790797be8d12761ad858f16d7762295502ed1f3c6332c146398dh4x+BCMNlGDpLgiiQonGQeKILN9y2ZYO8CrRgxcevU3vq4sCtlV5tG3ShVRuSYSx')
-
-
-
-
