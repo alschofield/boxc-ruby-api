@@ -21,15 +21,15 @@ require 'boxc-ruby'
 boxc = Boxc.new()
 
 # Get authorization url
-authorizationURL = BoxC.getAuthorizationUrl(APPLICATION_ID, returnURI);
+authorizationURL = boxc.getAuthorizationUrl(APPLICATION_ID, returnURI);
 
 #... after user got authorized, you get nonce, and you send it with the application id and secret to get an access token
 
-accessToken = BoxC.createAccessToken(APPLICATION_ID, APPLICATION_SECRET, nonce)
+accessToken = boxc.createAccessToken(APPLICATION_ID, APPLICATION_SECRET, nonce)
 
 #... then set the access token, once access token is set, all authorize required request are automatically sent with the token
 
-Boxc.setAccessToken(accessToken)
+boxc.setAccessToken(accessToken)
     
 ```
 
