@@ -5,7 +5,7 @@ Compatibility: Ruby
 
 Install with `gem install`:
 
-```sh
+```ruby
 gem install boxc-ruby
 ```
 
@@ -21,6 +21,7 @@ require 'boxc-ruby'
 boxc = Boxc.new()
 
 # Get authorization url
+
 authorizationURL = boxc.getAuthorizationUrl(APPLICATION_ID, returnURI);
 
 #... after user got authorized, you get nonce, and you send it with the application id and secret to get an access token
@@ -76,7 +77,7 @@ boxc.setAccessToken(accessToken)
 ## Examples
 
 ### estimate
-```Ruby
+```ruby
 results = boxc.estimate({
   country: 'US', # not required, now - default & only US
   postal_code: '94041', # destination postal code
